@@ -14,6 +14,17 @@ input.onButtonPressed(Button.A, function () {
         points += -10
     }
 })
+radio.onReceivedString(function (receivedString) {
+    if (A == B && B == C) {
+        basic.showString("+100")
+        points += 100
+    } else if (A == B && A != C || (A == C && A != B || B == C && A != B)) {
+        basic.showString("+20")
+        points += 20
+    } else {
+        basic.showIcon(IconNames.No)
+    }
+})
 input.onButtonPressed(Button.B, function () {
     basic.showString("" + (points))
 })
@@ -26,15 +37,6 @@ radio.onReceivedValue(function (name, value) {
     }
     if (name == "C") {
         C = value
-    }
-    if (A == B && B == C) {
-        basic.showString("+100")
-        points += 100
-    } else if (A == B && A != C || (A == C && A != B || B == C && A != B)) {
-        basic.showString("+20")
-        points += 20
-    } else {
-        basic.showIcon(IconNames.No)
     }
 })
 let C = 0
@@ -49,7 +51,4 @@ basic.showLeds(`
     # . . . .
     `)
 points = 100
-A = 11
-B = 11
-C = 11
 radio.setGroup(1)
