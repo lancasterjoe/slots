@@ -6,7 +6,7 @@ enum RadioMessage {
 input.onButtonPressed(Button.A, function () {
     if (points == 0) {
         basic.showIcon(IconNames.No)
-        music.play(music.stringPlayable("- - - - - - - - ", 206), music.PlaybackMode.InBackground)
+        music.play(music.stringPlayable("D E F G A - - - ", 206), music.PlaybackMode.InBackground)
     } else {
         radio.sendNumber(100)
         radio.sendNumber(200)
